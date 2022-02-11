@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/mask/static/css/main.a74abce2.css",
-    "main.js": "/mask/static/js/main.5031c502.js",
+    "main.css": "/mask/static/css/main.53638f57.css",
+    "main.js": "/mask/static/js/main.528d4294.js",
     "index.html": "/mask/index.html"
   },
   "entrypoints": [
-    "static/css/main.a74abce2.css",
-    "static/js/main.5031c502.js"
+    "static/css/main.53638f57.css",
+    "static/js/main.528d4294.js"
   ]
 }
