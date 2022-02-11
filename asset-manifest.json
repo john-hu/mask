@@ -1,13 +1,11 @@
 {
-  "main.css": "/mask/static/css/main.adee548a.chunk.css",
-  "main.js": "/mask/static/js/main.6ffa43d7.chunk.js",
-  "main.js.map": "/mask/static/js/main.6ffa43d7.chunk.js.map",
-  "static/js/1.082839da.chunk.js": "/mask/static/js/1.082839da.chunk.js",
-  "static/js/1.082839da.chunk.js.map": "/mask/static/js/1.082839da.chunk.js.map",
-  "runtime~main.js": "/mask/static/js/runtime~main.48c84af8.js",
-  "runtime~main.js.map": "/mask/static/js/runtime~main.48c84af8.js.map",
-  "static/css/main.adee548a.chunk.css.map": "/mask/static/css/main.adee548a.chunk.css.map",
-  "index.html": "/mask/index.html",
-  "precache-manifest.10c8bb766855564dff9fc10b910fc442.js": "/mask/precache-manifest.10c8bb766855564dff9fc10b910fc442.js",
-  "service-worker.js": "/mask/service-worker.js"
+  "files": {
+    "main.css": "/mask/static/css/main.a74abce2.css",
+    "main.js": "/mask/static/js/main.5031c502.js",
+    "index.html": "/mask/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.a74abce2.css",
+    "static/js/main.5031c502.js"
+  ]
 }
