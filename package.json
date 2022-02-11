@@ -1,0 +1,36 @@
+{
+  "name": "mask-detector",
+  "version": "1.0.1",
+  "description": "",
+  "keywords": [
+    "Mask Detection",
+    "YOLOv5",
+    "TensorFlow.js",
+    "tfjs"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "homepage": "https://john.hu/mask/",
+  "dependencies": {
+    "@tensorflow/tfjs": "^3.13.0",
+    "gh-pages": "^3.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build --repo git@github.com:john-hu/mask.git"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

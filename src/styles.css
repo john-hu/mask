@@ -1,0 +1,65 @@
+html, body {
+  color: rgba(64, 64, 64, 0.65);
+  font: 500 1em Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+*:focus {
+  outline: none !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.detector {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+.viewport {
+  border: thin dashed #c2c2c2;
+  border-radius: 5px;
+  background: #fcfcfc;
+  width: 640px;
+  height: 640px;
+}
+
+.message-box {
+  text-align: center;
+  padding: 8px 0;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#root {
+  height: 100%;
+}
+
+#offscreen-video {
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  z-index: -1;
+}
+
+@media only screen and (max-width: 768px) {
+  .viewport {
+    width: 100%;
+    height: calc(100% - 52px);
+    flex: 1 1 auto;
+  }
+}
