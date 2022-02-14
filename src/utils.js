@@ -39,6 +39,10 @@ export const drawDetections = ({
 }) => {
   let i;
   for (i = 0; i < validCount; ++i) {
+    const score = scoresData[i].toFixed(2);
+    if (score < 0.6) {
+      continue;
+    }
     let [x1, y1, x2, y2] = boxesData.slice(i * 4, (i + 1) * 4);
     x1 *= canvas.width;
     x2 *= canvas.width;
@@ -47,7 +51,6 @@ export const drawDetections = ({
     const width = x2 - x1;
     const height = y2 - y1;
     const klass = CLASS_NAMES[classesData[i]];
-    const score = scoresData[i].toFixed(2);
 
     // Draw the bounding box.
     ctx.strokeStyle = CLASS_COLORS[classesData[i]];
@@ -61,12 +64,14 @@ export const drawDetections = ({
     ctx.fillRect(x1, y1, textWidth + 4, textHeight + 4);
   }
   for (i = 0; i < validCount; ++i) {
+    const score = scoresData[i].toFixed(2);
+    if (score < 0.6) {
+      continue;
+    }
     let [x1, y1, ,] = boxesData.slice(i * 4, (i + 1) * 4);
     x1 *= canvas.width;
     y1 *= canvas.height;
     const klass = CLASS_NAMES[classesData[i]];
-    const score = scoresData[i].toFixed(2);
-
     // Draw the text last to ensure it's on top.
     ctx.fillStyle = "#000000";
     ctx.fillText(klass + ":" + score, x1, y1);

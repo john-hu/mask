@@ -1,5 +1,10 @@
-import { useEffect, useRef, useState } from "react";
-import { MODEL_SIZE, WEIGHTS_PATH } from "./constants";
+import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  MODEL_SIZE,
+  WEIGHTS_PATH,
+  CAMERA_DEFAULT_FACING,
+  CAMERA_FACING,
+} from "./constants";
 import { cropToCanvas, drawDetections, prepareCanvas } from "./utils";
 
 const tf = require("@tensorflow/tfjs");
@@ -94,10 +99,10 @@ export const useMaskDetection = (perfValue, videoStream) => {
       const startTime = new Date().getTime();
       const res = await model.executeAsync(input);
       setDetectTime(new Date().getTime() - startTime);
-      console.log("execute time", new Date().getTime() - startTime);
       const { boxesData, scoresData, classesData, validCount } =
         await unboxingDetection(res);
       tf.dispose(res);
+      tf.dispose(input);
       setDetectCount(validCount);
       drawDetections({
         canvas,
@@ -118,8 +123,9 @@ export const useMaskDetection = (perfValue, videoStream) => {
   return { model };
 };
 
-export const useVideo = () => {
+export const useVideo = (defaultFacing = CAMERA_DEFAULT_FACING) => {
   const [videoStream, setVideoStream] = useState();
+  const [videoFacing, setVideoFacing] = useState(defaultFacing);
   useEffect(() => {
     let stream;
     const videoTag = document.getElementById("offscreen-video");
@@ -130,7 +136,7 @@ export const useVideo = () => {
       stream = await navigator.mediaDevices.getUserMedia({
         audio: false,
         video: {
-          facingMode: "environment",
+          facingMode: videoFacing,
           width: { min: 640 },
           height: { min: 640 },
         },
@@ -143,6 +149,15 @@ export const useVideo = () => {
       videoTag.srcObject = null;
       stream && stream.getTracks().forEach(t => t.stop());
     };
-  }, []);
-  return videoStream;
+  }, [videoFacing]);
+  const toggleVideoFacing = useCallback(
+    () =>
+      setVideoFacing(
+        videoFacing === CAMERA_FACING.environment
+          ? CAMERA_FACING.user
+          : CAMERA_FACING.environment
+      ),
+    [videoFacing]
+  );
+  return { videoStream, videoFacing, toggleVideoFacing };
 };

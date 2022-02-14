@@ -34,9 +34,19 @@ html, body {
   height: 640px;
 }
 
+.detector-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 .message-box {
+  padding: 8px;
+  color: lightgray;
   text-align: center;
-  padding: 8px 0;
+  text-shadow: 1px 1px 2px #808080;
 }
 
 .loading {
@@ -59,7 +69,7 @@ html, body {
 @media only screen and (max-width: 768px) {
   .viewport {
     width: 100%;
-    height: calc(100% - 52px);
+    height: 100%;
     flex: 1 1 auto;
   }
 }
