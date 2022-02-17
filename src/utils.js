@@ -36,11 +36,12 @@ export const drawDetections = ({
   scoresData,
   classesData,
   validCount,
+  threshold,
 }) => {
   let i;
   for (i = 0; i < validCount; ++i) {
     const score = scoresData[i].toFixed(2);
-    if (score < 0.6) {
+    if (score < threshold) {
       continue;
     }
     let [x1, y1, x2, y2] = boxesData.slice(i * 4, (i + 1) * 4);
@@ -65,7 +66,7 @@ export const drawDetections = ({
   }
   for (i = 0; i < validCount; ++i) {
     const score = scoresData[i].toFixed(2);
-    if (score < 0.6) {
+    if (score < threshold) {
       continue;
     }
     let [x1, y1, ,] = boxesData.slice(i * 4, (i + 1) * 4);

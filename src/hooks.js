@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   MODEL_SIZE,
+  DETECTION_THRESHOLD,
   WEIGHTS_PATH,
   CAMERA_DEFAULT_FACING,
   CAMERA_FACING,
@@ -111,6 +112,7 @@ export const useMaskDetection = (perfValue, videoStream) => {
         scoresData,
         classesData,
         validCount,
+        threshold: DETECTION_THRESHOLD,
       });
       timerRef.current = setTimeout(drawImage);
     };
