@@ -54,12 +54,13 @@ export const drawDetections = ({
     const klass = CLASS_NAMES[classesData[i]];
 
     // Draw the bounding box.
-    ctx.strokeStyle = CLASS_COLORS[classesData[i]];
+    ctx.strokeStyle = CLASS_COLORS[classesData[i] % CLASS_COLORS.length];
     ctx.lineWidth = 4;
     ctx.strokeRect(x1, y1, width, height);
+    console.log(CLASS_COLORS[classesData[i] % CLASS_COLORS.length], classesData[i]);
 
     // Draw the label background.
-    ctx.fillStyle = CLASS_COLORS[classesData[i]];
+    ctx.fillStyle = CLASS_COLORS[classesData[i] % CLASS_COLORS.length];
     const textWidth = ctx.measureText(klass + ":" + score).width;
     const textHeight = parseInt(FONT, 10); // base 10
     ctx.fillRect(x1, y1, textWidth + 4, textHeight + 4);
@@ -74,7 +75,7 @@ export const drawDetections = ({
     y1 *= canvas.height;
     const klass = CLASS_NAMES[classesData[i]];
     // Draw the text last to ensure it's on top.
-    ctx.fillStyle = "#000000";
+    ctx.fillStyle = "#FFFFFF";
     ctx.fillText(klass + ":" + score, x1, y1);
   }
 };
