@@ -1,11 +1,11 @@
-export const WEIGHTS_PATH = "/mask/modeln/model.json";
+export const WEIGHTS_PATH = window.cfg.weightPath;
 
-export const CLASS_NAMES = ["mask", "no mask"];
-export const CLASS_COLORS = ["#70FF70", "#FF7070"];
+export const CLASS_NAMES = window.cfg.classNames;
+export const CLASS_COLORS = window.cfg.classColors;
 export const FONT = "16px sans-serif";
 
-export const MODEL_SIZE = [320, 320];
-export const DETECTION_THRESHOLD = 0.6;
+export const MODEL_SIZE = window.cfg.imageSize || [320, 320];
+export const DETECTION_THRESHOLD = window.cfg.detectionThreshold || 0.6;
 
 export const CAMERA_FACING = {
   user: "user",
